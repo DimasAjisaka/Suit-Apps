@@ -13,6 +13,7 @@ android {
         applicationId "com.aji.suitapps"
         minSdk 19
         targetSdk 31
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
 
@@ -64,4 +65,5 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.5.2'
     implementation 'androidx.room:room-ktx:2.5.2'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation "androidx.multidex:multidex:2.0.1"
 }

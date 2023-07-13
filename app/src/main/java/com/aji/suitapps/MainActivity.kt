@@ -22,15 +22,23 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnCheck.setOnClickListener {
             val text = binding.tietPalindrome.text.toString()
-            if (isPalindrom(text)) {
-                Toast.makeText(this, "Is Palindrome", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Isn't Palindrome", Toast.LENGTH_SHORT).show()
+            when {
+                text.isEmpty() -> binding.tietPalindrome.error = "Please fill it"
+                else -> {
+                    if (isPalindrom(text)) {
+                        Toast.makeText(this, "Is Palindrome", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Isn't Palindrome", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
         binding.btnNext.setOnClickListener {
             val name = binding.tietName.text.toString()
-            startActivity(Intent(this, SecondScreenActivity::class.java).putExtra("name", name))
+            when {
+                name.isEmpty() -> binding.tietName.error = "Please fill it"
+                else -> startActivity(Intent(this, SecondScreenActivity::class.java).putExtra("name", name))
+            }
         }
     }
 
